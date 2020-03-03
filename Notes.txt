@@ -1,0 +1,52 @@
+Purpose: The intention of this project is to design a broad discussion of data visualization for python through
+examining how the matplotlib and seaborn packages work
+
+Author: David Grinder
+
+Date: 2/29/2020
+==================================================
+General notes about presentation:
+
+Should do comparison with ggplot and SAS.
+
+What visualizations currently exist?  Talk to people in risk management about what typical plots they produce.  Also
+talk to Greg/others in reporting about what visualizations they typically do
+- Could get SAS code from them to use in presentation
+
+Does marketing have any guidance on presentation pallets?  Are their standard pallets that should be used when
+developing?
+
+Exercises:
+- Manipulating the parameters of the plot
+- Based on the book
+- Use a common data set or give a way to generate the data
+- Could we use some os commnands to grab data off the computer they are using?
+
+
+Outline:
+
+1. What "are" visualizations in Python?  What important technology is being leveraged?  How are visualizations rendered?
+  How does this change on different systems?
+
+https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py
+
+1. Why do we use visualizations?  What best practices should be followed?  What theories exist (Gramar of Graphics)?
+
+2. Examples of plots:
+A. Line plot
+B. Histogram
+C. Correlation matrix
+D. Heat Map
+E. Time series data (?)
+
+2. Tasks associated with data visualization
+- Useful visualizations in data cleaning/understanding
+- Modeling diagnostics (ROC/Percision recall curve)
+    - What does Sci-Kit Learn or H20 use?
+
+3. Manipulating the basic visualization:
+- axis
+- legend
+- title
+- mutliple dimensionality
+- facetting graphs
