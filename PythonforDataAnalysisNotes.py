@@ -168,14 +168,70 @@ ax.legend()
 
 # Functions for annotations include text, arrow, or annotate functions
 
+import matplotlib.pyplot as plt
 from datetime import datetime
+import pandas as pd
 
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
 
-data = pd.read_csv('examples/spx.csv', index_col - 0, parse_dates=True)
+data = pd.read_csv(r'examples/spx.csv', index_col=0, parse_dates=True)
 spx = data['SPX']
 
 spx.plot(ax=ax, style='k-')
 
+crisis_data = [
+    (datetime(2007,10,11),'Peak of bull market'),
+    (datetime(2008,3,12), 'Bear Stearns Fails'),
+    (datetime(2008,9,15),'Lehman Bankruptcy')
+]
 
+for date, label in crisis_data:
+    ax.annotate(label, xy=(date, spx.asof(date)+75),
+                xytext = (date, spx.asof(date)+225),
+                arrowprops=dict(facecolor='black', headwidth=4, width=2, headlength = 4),
+                horizontalalignment='left',
+                verticalalignment = 'top'
+                )
+
+#Zoom in to 2007 - 2010
+
+ax.set_xlim(['1/1/2007', '1/1/2011']) #Methods used here instead of matplotlibs defaults
+ax.set_ylim([600,1800])
+
+ax.set_title('Important dates in the 2008-2009 financial crisis')
+
+# Shapes: reffered to as patches; common shapes exist (Rectangle, Circle, etc.)
+
+# Steps: create patch then add it to the plot:
+
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+
+rect = plt.Rectangle((0.2, 0.75), 0.4, 0.15, color='k',alpha=0.3)
+circ = plt.Circle((0.7, 0.2), 0.15,color='b', alpha =0.3)
+pgon = plt.Polygon([[0.15, 0.15], [0.2, 0.6], [0.35, 0.4], [0.05, 0.3]], color='g', alpha=0.5)
+
+ax.add_patch(rect)
+ax.add_patch(circ)
+ax.add_patch(pgon)
+
+
+#Saving plots to file
+
+plt.savefig('figpath.svg')
+#Equiv to savefig instance method
+#File type is inferred from the extension of the file.
+
+#Important options:
+# dpi = dots-per-inch resolution
+# bbox_inches = trim whitespace around a figure
+
+plt.savefig('figpath.svg', dpi=400, bbox_inches='tight')
+
+#Can write to file-like objects instead of disk:
+
+from io import BytesIO
+buffer = BytesIO()
+plt.savefig(buffer)
+plt_data = buffer.get_value()

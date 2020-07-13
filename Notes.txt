@@ -24,7 +24,7 @@ Exercises:
 
 
 Outline:
-
+I. Introduction
 1. What "are" visualizations in Python?  What important technology is being leveraged?  How are visualizations rendered?
   How does this change on different systems?
 
@@ -32,6 +32,7 @@ https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-intr
 
 1. Why do we use visualizations?  What best practices should be followed?  What theories exist (Gramar of Graphics)?
 
+II. Matplotlib
 2. Examples of plots:
 A. Line plot
 B. Histogram
@@ -50,3 +51,12 @@ E. Time series data (?)
 - title
 - mutliple dimensionality
 - facetting graphs
+
+III.Seaborn
+
+III. Ploting with pandas
+
+
+IV. Plotly
+
+
