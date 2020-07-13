@@ -137,9 +137,45 @@ ax.set_xlabel('Stages')
 
 #axes class has set method to batch update plot properties
 
-
 props = {
     'title': 'My first matplotlib plot',
     'xlabel': 'Stages'
 }
 ax.props(**props )
+
+#Appears that you can pass a dictionary of kwargs with the '**' notation to work this.  Could be useful to set common
+# parameters and apply them
+
+#Ways to add legends:
+
+#1: pass a label argument when additng each piece of the plot
+
+#Figure 9-10
+from numpy.random import randn
+fig = plt.figure(); ax = fig.add_subplot(1,1,1)
+ax.plot(randn(1000).cumsum(),'k', label = 'one')
+ax.plot(randn(1000).cumsum(),'g--', label = 'two')
+ax.plot(randn(1000).cumsum(),'r.', label = 'three')
+
+#Now call either plt.legend() or ax.legend
+
+ax.legend()
+
+# legend has the loc parameter to determine location of the legend in plot
+# To leave a plot off the legend, pass no label or '_nolegend_' in the label
+
+# Annotations and drawing on a subplot:
+
+# Functions for annotations include text, arrow, or annotate functions
+
+from datetime import datetime
+
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+
+data = pd.read_csv('examples/spx.csv', index_col - 0, parse_dates=True)
+spx = data['SPX']
+
+spx.plot(ax=ax, style='k-')
+
+
